@@ -30,3 +30,24 @@ def rescale_img(img, dims=None, width=1024):
 		dims = dims[::-1]
 	scale = (dims[1] / float(grey.shape[0]), dims[0] / float(grey.shape[1]))
 	return cv2.resize(grey, dims, interpolation=cv2.INTER_AREA), scale
+
+
+def display_scaled_image(name, image, scale):
+	"""Function to display a scaled cv2 image
+	:param name:
+		Window name
+	:type name:
+		basestring
+	:param image:
+		Image as numpy array
+	:type image:
+		numpy.ndarray
+	:param scale:
+		Scale factor applied to image
+	:type scale:
+		float
+	"""
+	height, width = image.shape[:2]
+	cv2.imshow(name, cv2.resize(image,
+			(int(scale * width), int(scale * height)),
+			interpolation=cv2.INTER_CUBIC))

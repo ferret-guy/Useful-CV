@@ -101,7 +101,5 @@ ENV/
 .mypy_cache/
 
 .idea/
-
 Camera_Calibration.npz
-
 test.jpg
